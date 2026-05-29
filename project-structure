@@ -1,0 +1,14 @@
+commoforge_ops/
+├── main.py
+├── pages/
+│   ├── 1_Trade_Capture.py
+│   ├── 2_Portfolio_Allocation.py
+│   ├── 3_Logistics_Management.py
+│   ├── 4_Document_Vault.py
+│   ├── 5_Repo_Financing.py
+│   └── 6_Dashboard_Reporting.py
+├── utils/
+│   ├── trade_engine.py
+│   ├── logistics.py
+│   └── database.py
+└── requirements.txt

@@ -1,0 +1,21 @@
+import streamlit as st
+
+st.title("🔄 Repo Agreement Management")
+
+st.subheader("Active Repo Agreements")
+
+repo_data = {
+    'Repo_ID': 'REPO-78491',
+    'Commodity': 'Gold',
+    'Quantity': 800,
+    'Collateral_Value': '$2,850,000',
+    'Haircut': '8%',
+    'Term': '30 Days',
+    'Status': 'Live'
+}
+
+st.json(repo_data)
+
+if st.button("Generate Repo Agreement from Trade"):
+    st.success("✅ Repo agreement successfully generated and linked to trade")
+    st.info("Collateral (physical metal) allocated • Financing counterparty notified")

@@ -1,0 +1,34 @@
+import streamlit as st
+import pandas as pd
+from datetime import datetime
+
+st.title("📋 Trade Capture")
+
+col1, col2 = st.columns(2)
+with col1:
+    commodity = st.selectbox("Commodity", ["Crude Oil", "Gold", "Copper", "Natural Gas", "Soybeans"])
+    trade_type = st.selectbox("Trade Type", ["Futures", "Physical", "Swap", "Option"])
+    direction = st.selectbox("Direction", ["Long", "Short"])
+
+with col2:
+    quantity = st.number_input("Quantity (units)", value=1000)
+    price = st.number_input("Price per unit ($)", value=2450.50)
+    counterparty = st.text_input("Counterparty")
+
+if st.button("Capture Trade", type="primary"):
+    trade = {
+        'Trade_ID': f"TR{datetime.now().strftime('%Y%m%d%H%M')}",
+        'Timestamp': datetime.now(),
+        'Commodity': commodity,
+        'Type': trade_type,
+        'Direction': direction,
+        'Quantity': quantity,
+        'Price': price,
+        'Notional': quantity * price,
+        'Counterparty': counterparty,
+        'Status': 'Captured'
+    }
+    st.success(f"Trade Captured: {trade['Trade_ID']}")
+    st.json(trade)
+    
+    # In production: Save to database

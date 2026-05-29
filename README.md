@@ -28,6 +28,3 @@ Run: streamlit run main.py
 
 This system covers the **complete lifecycle** you requested:
 **Trade Capture → Allocation → Logistics → Documents (BoL etc.) → Repo Fulfillment**
-
-Would you like me to expand any specific module (e.g., full risk engine, margin calculator, or automated email notifications)?
-

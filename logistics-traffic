@@ -1,0 +1,22 @@
+import streamlit as st
+from datetime import datetime, timedelta
+
+st.title("🚢 Logistics & Shipping Coordination")
+
+col1, col2 = st.columns(2)
+with col1:
+    shipment_id = st.text_input("Shipment ID", value="SHIP-2026-7842")
+    commodity = st.selectbox("Commodity", ["Copper Cathodes", "Gold Bars", "Crude Oil"])
+    quantity = st.number_input("Quantity (MT)", value=2500)
+
+with col2:
+    origin = st.text_input("Origin Port", "Santiago, Chile")
+    destination = st.text_input("Destination Port", "Rotterdam")
+    eta = st.date_input("Estimated Arrival", datetime.today() + timedelta(days=28))
+
+if st.button("Create Shipment & Notify Logistics"):
+    st.success("Logistics team notified via API")
+    st.info("Bill of Lading generation initiated...")
+    
+    st.subheader("Shipping Status")
+    st.progress(65, text="Vessel Loaded • En Route")

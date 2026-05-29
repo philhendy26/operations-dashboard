@@ -1,0 +1,18 @@
+import streamlit as st
+import pandas as pd
+
+st.title("📑 Document Vault & Management")
+
+docs = pd.DataFrame({
+    'Document': ['Bill of Lading', 'Commercial Invoice', 'Certificate of Origin', 'Packing List', 'Insurance Certificate'],
+    'Shipment_ID': ['SHIP-2026-7842']*5,
+    'Status': ['Generated', 'Signed', 'Approved', 'Pending', 'Uploaded'],
+    'Date': ['2026-05-25', '2026-05-26', '2026-05-27', '2026-05-28', '2026-05-29']
+})
+
+st.dataframe(docs, use_container_width=True)
+
+uploaded = st.file_uploader("Upload Signed Bill of Lading (PDF)", type=["pdf"])
+if uploaded:
+    st.success("✅ Bill of Lading uploaded and linked to trade")
+    st.download_button("Download All Documents Package", "package.zip")

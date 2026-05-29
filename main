@@ -1,0 +1,11 @@
+import streamlit as st
+from datetime import datetime
+
+st.set_page_config(page_title="CommoForge OPS", layout="wide", page_icon="📦")
+st.title("📦 CommoForge OPS")
+st.markdown("**Commodities Hedge Fund Operations Platform** | Trade → Allocation → Logistics → Repo")
+
+st.sidebar.success("Connected • Live")
+
+# Navigation is handled automatically by pages/
+st.info("Use the sidebar to navigate through the full trade lifecycle.")

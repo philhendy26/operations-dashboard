@@ -1,0 +1,22 @@
+import streamlit as st
+import plotly.express as px
+import pandas as pd
+
+st.title("📊 Operations Dashboard")
+
+col1, col2, col3, col4 = st.columns(4)
+col1.metric("Open Positions", "18")
+col2.metric("Pending Shipments", "7")
+col3.metric("Documents Pending", "12")
+col4.metric("Repo Exposure", "$48.2M")
+
+# Exposure by Commodity
+fig = px.pie(values=[42, 28, 19, 11], names=['Gold', 'Copper', 'Crude', 'Gas'], title="Exposure by Commodity")
+st.plotly_chart(fig, use_container_width=True)
+
+st.subheader("Trade Lifecycle Status")
+lifecycle = pd.DataFrame({
+    'Stage': ['Trade Captured', 'Allocated', 'Logistics Initiated', 'Documents Complete', 'Repo Settled'],
+    'Count': [45, 38, 29, 22, 15]
+})
+st.bar_chart(lifecycle.set_index('Stage'))

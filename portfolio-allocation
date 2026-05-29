@@ -1,0 +1,21 @@
+import streamlit as st
+import pandas as pd
+
+st.title("🔄 Position Allocation & Management")
+
+# Sample open positions
+positions = pd.DataFrame({
+    'Trade_ID': ['TR20260529001', 'TR20260529002'],
+    'Commodity': ['Copper', 'Gold'],
+    'Quantity': [5000, 1200],
+    'Futures_Contract': ['HGZ6', 'GCQ6'],
+    'Allocated': [True, False]
+})
+
+st.dataframe(positions, use_container_width=True)
+
+commodity = st.selectbox("Allocate Material For", positions['Commodity'].unique())
+
+if st.button("Allocate to Futures Contract"):
+    st.success(f"✅ {commodity} allocated to relevant futures contract.")
+    st.info("Position now linked to clearing house and margin requirements updated.")
